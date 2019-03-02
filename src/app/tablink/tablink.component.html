@@ -1,0 +1,17 @@
+<div>
+  <span style = "border: 1px solid;
+  font-size: 20px;
+  margin: 20px;
+  margin-top: 20px;" (click)= "newAssign()">New Assign</span>
+  <span style = "border: 1px solid;
+  font-size: 20px;
+  margin: 20px;
+  margin-top: 20px;" (click)= "preAssign()">Pre Assign</span>
+</div>
+
+<div *ngIf="isAssignClicked == false">
+  <p>new assign case open</p>
+</div>
+<div style="margin-left: 164px;" *ngIf="isPreAssignClicked == false">
+  <p>pre assign case open</p>
+</div>

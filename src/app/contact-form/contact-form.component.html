@@ -1,0 +1,65 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="form-group">
+      <label for="firstName">FirstName</label>
+      <input 
+        required 
+        minlength="3" 
+        maxlength="10" 
+        pattern="banana"  
+        ngModel 
+        #firstName="ngModel" 
+        (change)="log(firstName)" 
+        name="firstName" 
+        type="text" 
+        id="firstName"  
+        class="form-control">
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors.required">FirstName is required</div>
+        <div *ngIf="firstName.errors.minlength">Should be min 3 char</div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="text" id="password" value="" class="form-control">
+    </div>
+    <div class="checkbox">
+      <label>
+          <input type="checkbox" ngModel name="isSubscribed">Subscribe mailing list
+      </label>
+    </div>
+    <p>
+      {{ f.value | json}}
+    </p>
+    <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+  </form>
+
+  <div class="dropdown" [class.open]="isOpen">
+      <button (click)="onDropdownToggle()" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li>
+          <span (click)="newAssign()">New Assign Case</span>
+          <span class="float: right" (click)="preAssign()">Pre Assign Case</span>
+        </li>
+         <div *ngIf="isClicked">
+            new assign case open
+         </div>
+         <div *ngIf="isClicked">
+           pre assign case open
+         </div>
+        
+        <li><a href="#">CSS</a></li>
+        <li><a href="#">JavaScript</a></li>
+      </ul>
+  </div>
+
+  <!-- <div class="btn-group dropdown" [class.open]="isOpen">
+    <button class="btn btn-default dropdown-toggle area-dropdown" (click)="onDropdownToggle()">
+    <span class="eo-select-label ellipsis"> Select area size</span>
+    <span aria-hidden="true" class="caret glyphicon"></span>
+    </button>
+  <ul class="eo-dropdown-menu">
+     <li class="li-employee-number-selector"> 5 - 50 Square meters </li>
+     <li class="li-employee-number-selector"> 51 - 100 Square meters </li>
+  </ul>
+ </div> -->

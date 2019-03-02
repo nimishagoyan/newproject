@@ -1,0 +1,41 @@
+<div class="container" style="width: 340px; margin-top: 71px;">
+ 
+    <!-- regular accordion -->
+    <accordion>
+        <accordion-group >
+            <accordion-heading >
+                <span (click)= "newAssign()">New Assign Case</span>
+            </accordion-heading>
+            <accordion-heading style="float : right">
+                <span (click)= "preAssign()">Previously</span>
+            </accordion-heading>
+        </accordion-group>
+        <table *ngIf="isAssignClicked == false">
+          <tr>
+              <span>New Assign Case</span>
+          </tr>
+        </table>
+        <table *ngIf="isPreAssignClicked == false">
+            <tr>
+                <span>Previously case assign</span>
+            </tr>
+          </table>
+        <accordion-group heading="Contacts">
+            This is content of the contacts
+        </accordion-group>
+        <accordion-group heading="Map">
+            Content of the Map
+        </accordion-group>
+        <accordion-group>
+            <accordion-heading>
+                Custom heading
+            </accordion-heading>
+            Its all about me.
+        </accordion-group>
+    </accordion>
+    <!-- <uib-accordion>
+    <uib-accordion-group heading="Custom template" template-url="group-template.html">
+        Hello
+      </uib-accordion-group>
+    </uib-accordion> -->
+</div>
